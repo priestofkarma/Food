@@ -5,42 +5,42 @@ function cards() {
     // console.log(cardContainer);
 
     class MenuCard {
-        constructor(imageURL, alt, plan, descr, price, parentSelector, ...classes) {
-            this.imageURL = imageURL;
+        constructor(imageurl, alt, plan, descr, price, parentselector, ...classes) {
+            this.imageurl = imageurl;
             this.alt = alt;
             this.plan = plan;
             this.descr = descr;
             this.price = price;
             this.classes = classes;
-            this.parent = document.querySelector(parentSelector);
+            this.parent = document.queryselector(parentselector);
             this.transfer = 27;
-            this.changeToUAH();
+            this.changetouah();
         }
 
-        changeToUAH() {
+        changetouah() {
             this.price = +this.price * this.transfer;
         }
 
         render() {
 
-            const element = document.createElement('div');
+            const element = document.createelement('div');
 
             if (this.classes.length === 0) {
                 this.classes = "menu__item";
-                element.classList.add(this.classes);
+                element.classlist.add(this.classes);
             } else {
-                this.classes.forEach(className => element.classList.add('menu__item', className));
+                this.classes.foreach(classname => element.classlist.add('menu__item', classname));
             }
 
             // console.log(this.classes);
 
-            element.innerHTML = `
-               <img src="${this.imageURL}" alt="${this.alt}">
+            element.innerhtml = `
+               <img src="${this.imageurl}" alt="${this.alt}">
                <h3 class="menu__item-subtitle">${this.plan}</h3>
                <div class="menu__item-descr">${this.descr}</div>
                <div class="menu__item-divider"></div>
                <div class="menu__item-price">
-                  <div class="menu__item-cost">Цена:</div>
+                  <div class="menu__item-cost">цена:</div>
                   <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
                </div>`;
             this.parent.append(element);
