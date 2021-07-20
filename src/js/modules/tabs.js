@@ -17,15 +17,18 @@ function tabs(tabsSelector, tabsContentSelector, tabsparentSelector, activeClass
     }
 
     function showTabContent(i = 0) {
+
         tabsContent[i].classList.add('show', 'fade');
         tabsContent[i].classList.remove('hide');
         tabs[i].classList.add(activeClass);
+
     }
 
     hideTabContent();
     showTabContent();
 
     tabsParent.addEventListener('click', function (event) {
+        
         const target = event.target;
         if (target && target.classList.contains(tabsSelector.slice(1))) {
             tabs.forEach((item, i) => {
