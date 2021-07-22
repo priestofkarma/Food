@@ -117,7 +117,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }, 30000);
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
   Object(_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal]', '.modal', modalTimerId);
-  Object(_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])('.timer', '2021-03-03');
+  Object(_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])('.timer', '2022-05-20');
   Object(_modules_cards__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_modules_forms__WEBPACK_IMPORTED_MODULE_4__["default"])('form', modalTimerId);
   Object(_modules_slider__WEBPACK_IMPORTED_MODULE_5__["default"])({
@@ -273,40 +273,40 @@ function cards() {
   const cardContainer = document.querySelector('.menu__field > .container'); // console.log(cardContainer);
 
   class MenuCard {
-    constructor(imageURL, alt, plan, descr, price, parentSelector, ...classes) {
-      this.imageURL = imageURL;
+    constructor(imageurl, alt, plan, descr, price, parentselector, ...classes) {
+      this.imageurl = imageurl;
       this.alt = alt;
       this.plan = plan;
       this.descr = descr;
       this.price = price;
       this.classes = classes;
-      this.parent = document.querySelector(parentSelector);
+      this.parent = document.queryselector(parentselector);
       this.transfer = 27;
-      this.changeToUAH();
+      this.changetouah();
     }
 
-    changeToUAH() {
+    changetouah() {
       this.price = +this.price * this.transfer;
     }
 
     render() {
-      const element = document.createElement('div');
+      const element = document.createelement('div');
 
       if (this.classes.length === 0) {
         this.classes = "menu__item";
-        element.classList.add(this.classes);
+        element.classlist.add(this.classes);
       } else {
-        this.classes.forEach(className => element.classList.add('menu__item', className));
+        this.classes.foreach(classname => element.classlist.add('menu__item', classname));
       } // console.log(this.classes);
 
 
-      element.innerHTML = `
-               <img src="${this.imageURL}" alt="${this.alt}">
+      element.innerhtml = `
+               <img src="${this.imageurl}" alt="${this.alt}">
                <h3 class="menu__item-subtitle">${this.plan}</h3>
                <div class="menu__item-descr">${this.descr}</div>
                <div class="menu__item-divider"></div>
                <div class="menu__item-price">
-                  <div class="menu__item-cost">Цена:</div>
+                  <div class="menu__item-cost">цена:</div>
                   <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
                </div>`;
       this.parent.append(element);
@@ -771,8 +771,8 @@ function tabs(tabsSelector, tabsContentSelector, tabsparentSelector, activeClass
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// timer
 function timer(id, deadline) {
-  /* timer */
   function getTimeRemaining(endtime) {
     const t = Date.parse(endtime) - Date.parse(new Date()),
           days = Math.floor(t / (1000 * 60 * 60 * 24)),
@@ -818,7 +818,7 @@ function timer(id, deadline) {
     }
   }
 
-  setClock('.timer', deadline);
+  setClock(id, deadline);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (timer);
